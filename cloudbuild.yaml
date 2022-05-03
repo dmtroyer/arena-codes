@@ -1,6 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--build-arg', 'RAILS_MASTER_KEY=$$RAILS_MASTER_KEY', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/arena-codes', '.']
+  secretEnv: ['RAILS_MASTER_KEY']
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/arena-codes']
