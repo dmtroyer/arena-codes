@@ -10,6 +10,7 @@ ENV RAILS_LOG_TO_STDOUT=true
 WORKDIR /app
 COPY ./src /app
 
+RUN echo $RAILS_MASTER_KEY
 RUN bundle install
 RUN bundle exec rake assets:precompile
 
