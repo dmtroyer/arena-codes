@@ -1,0 +1,17 @@
+# Ignore all logfiles and tempfiles.
+/src/log/*
+/src/tmp/*
+!/src/log/.keep
+!/src/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/src/tmp/pids/*
+!/src/tmp/pids/
+!/src/tmp/pids/.keep
+
+/src/public/assets
+
+# Ignore master key for decrypting credentials and more.
+/src/config/master.key
+
+.DS_Store
