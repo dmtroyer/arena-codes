@@ -1,17 +1,16 @@
 FROM ruby:3.1.2
 
-ARG RAILS_KEY
-
-# ENV RAILS_ENV=production
-# ENV RAILS_MASTER_KEY=${RAILS_KEY}
+ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
 ENV RAILS_LOG_TO_STDOUT=true
 
 WORKDIR /app
 COPY ./src /app
 
-RUN echo $RAILS_MASTER_KEY
 RUN bundle install
-RUN bundle exec rake assets:precompile
+RUN bundle exec rails assets:precompile
+
+RUN bundle exec rails db:create
+RUN bundle exec rails db:migrate
 
 CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "8080"]
