@@ -12,7 +12,7 @@ steps:
 - id: 'database migrations'
   name: 'gcr.io/${PROJECT_ID}/arena-codes'
   entrypoint: 'bash'
-  args: ['-c', 'bundle exec rails db:create && bundle exec rails db:migrate']
+  args: ['-c', 'cd /app && bundle exec rails db:create && bundle exec rails db:migrate']
   secretEnv: ['ARENACODES_DATABASE_PASSWORD', 'RAILS_MASTER_KEY']
 
 availableSecrets:
