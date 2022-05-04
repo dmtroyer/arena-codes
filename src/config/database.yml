@@ -87,4 +87,4 @@ production:
   database: arena_codes_production
   username: arena_codes
   password: <%= ENV['ARENACODES_DATABASE_PASSWORD'] %>
-  host: /cloudsql/<%= ENV['ARENACODES_INSTANCE_NAME'] %>
+  host: /cloudsql/arena-codes-348602:us-central1:arena-codes-production
