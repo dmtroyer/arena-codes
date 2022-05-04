@@ -1,5 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
   args: ["-c", "docker build --build-arg RAILS_MASTER_KEY=$$RAILS_MASTER_KEY -t gcr.io/${PROJECT_ID}/arena-codes . "]
   secretEnv: ['RAILS_MASTER_KEY']
 
